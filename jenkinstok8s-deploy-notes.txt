@@ -1,0 +1,115 @@
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+
+
+
+ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+
+
+
+eksctl create cluster 
+--name sebi-test-cluster 
+--version 1.17 
+--region us-west-2 
+--nodegroup-name worker-nodes 
+--node-type t2.micro 
+--nodes 2
+
+
+
+2023-02-05 16:38:51 [ℹ]  nodegroup "ng-df1872c4" has 2 node(s)
+2023-02-05 16:38:51 [ℹ]  node "ip-192-168-2-129.us-west-2.compute.internal" is ready
+2023-02-05 16:38:51 [ℹ]  node "ip-192-168-41-253.us-west-2.compute.internal" is ready
+2023-02-05 16:38:52 [✖]  unable to use kubectl with the EKS cluster (check 'kubectl version'): WARNING: This version information is deprecated and will be
+ replaced with the output from kubectl version --short.  Use --output=yaml|json to get the full version.
+Unable to connect to the server: getting credentials: decoding stdout: no kind "ExecCredential" is registered for version
+ "client.authentication.k8s.io/v1alpha1" in scheme "pkg/client/auth/exec/exec.go:62"
+
+2023-02-05 16:38:52 [ℹ]  cluster should be functional despite missing (or misconfigured) client binaries
+2023-02-05 16:38:52 [✔]  EKS cluster "hilarious-rainbow-1675614029" in "us-west-2" region is ready
+--name: command not found
+--version: command not found
+--region: command not found
+--nodegroup-name: command not found
+--node-type: command not found
+--nodes: command not found
+jenkins@ip-172-31-0-98:~$
+
+
+
+jenkins@ip-172-31-0-98:~$
+jenkins@ip-172-31-0-98:~$ eksctl create cluster
+--name sebi-test-cluster
+--version 1.17
+--region us-west-2
+--nodegroup-name worker-nodes
+--node-type t2.micro
+--nodes 2
+2023-02-05 16:20:29 [ℹ]  eksctl version 0.128.0
+2023-02-05 16:20:29 [ℹ]  using region us-west-2
+2023-02-05 16:20:29 [ℹ]  setting availability zones to [us-west-2b us-west-2a us-west-2d]
+2023-02-05 16:20:29 [ℹ]  subnets for us-west-2b - public:192.168.0.0/19 private:192.168.96.0/19
+2023-02-05 16:20:29 [ℹ]  subnets for us-west-2a - public:192.168.32.0/19 private:192.168.128.0/19
+2023-02-05 16:20:29 [ℹ]  subnets for us-west-2d - public:192.168.64.0/19 private:192.168.160.0/19
+2023-02-05 16:20:29 [ℹ]  nodegroup "ng-df1872c4" will use "" [AmazonLinux2/1.24]
+2023-02-05 16:20:29 [ℹ]  using Kubernetes version 1.24
+2023-02-05 16:20:29 [ℹ]  creating EKS cluster "hilarious-rainbow-1675614029" in "us-west-2" region with managed nodes
+2023-02-05 16:20:29 [ℹ]  will create 2 separate CloudFormation stacks for cluster itself and the initial managed nodegroup
+2023-02-05 16:20:29 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=us-west-2 --cluster=hilarious-rainbow-1675614029'
+2023-02-05 16:20:29 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "hilarious-rainbow-1675614029" in "us-west-2"
+2023-02-05 16:20:29 [ℹ]  CloudWatch logging will not be enabled for cluster "hilarious-rainbow-1675614029" in "us-west-2"
+2023-02-05 16:20:29 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=us-west-2 --cluster=hilarious-rainbow-1675614029'
+2023-02-05 16:20:29 [ℹ]
+2 sequential tasks: { create cluster control plane "hilarious-rainbow-1675614029",
+    2 sequential sub-tasks: {
+        wait for control plane to become ready,
+        create managed nodegroup "ng-df1872c4",
+    }
+}
+2023-02-05 16:20:29 [ℹ]  building cluster stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:20:30 [ℹ]  deploying stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:21:00 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:21:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:22:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:23:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:24:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:25:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:26:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:27:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:28:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:29:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:30:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:31:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:32:30 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-cluster"
+2023-02-05 16:34:31 [ℹ]  building managed nodegroup stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:34:31 [ℹ]  deploying stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:34:32 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:35:02 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:35:32 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:37:25 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:38:50 [ℹ]  waiting for CloudFormation stack "eksctl-hilarious-rainbow-1675614029-nodegroup-ng-df1872c4"
+2023-02-05 16:38:50 [ℹ]  waiting for the control plane to become ready
+2023-02-05 16:38:51 [✔]  saved kubeconfig as "/var/lib/jenkins/.kube/config"
+2023-02-05 16:38:51 [ℹ]  no tasks
+2023-02-05 16:38:51 [✔]  all EKS cluster resources for "hilarious-rainbow-1675614029" have been created
+2023-02-05 16:38:51 [ℹ]  nodegroup "ng-df1872c4" has 2 node(s)
+2023-02-05 16:38:51 [ℹ]  node "ip-192-168-2-129.us-west-2.compute.internal" is ready
+2023-02-05 16:38:51 [ℹ]  node "ip-192-168-41-253.us-west-2.compute.internal" is ready
+2023-02-05 16:38:51 [ℹ]  waiting for at least 2 node(s) to become ready in "ng-df1872c4"
+2023-02-05 16:38:51 [ℹ]  nodegroup "ng-df1872c4" has 2 node(s)
+2023-02-05 16:38:51 [ℹ]  node "ip-192-168-2-129.us-west-2.compute.internal" is ready
+2023-02-05 16:38:51 [ℹ]  node "ip-192-168-41-253.us-west-2.compute.internal" is ready
+2023-02-05 16:38:52 [✖]  unable to use kubectl with the EKS cluster (check 'kubectl version'): WARNING: This version information is deprecated and will be replaced with the output from kubectl version --short.  Use --output=yaml|json to get the full version.
+Unable to connect to the server: getting credentials: decoding stdout: no kind "ExecCredential" is registered for version "client.authentication.k8s.io/v1alpha1" in scheme "pkg/client/auth/exec/exec.go:62"
+
+2023-02-05 16:38:52 [ℹ]  cluster should be functional despite missing (or misconfigured) client binaries
+2023-02-05 16:38:52 [✔]  EKS cluster "hilarious-rainbow-1675614029" in "us-west-2" region is ready
+--name: command not found
+--version: command not found
+--region: command not found
+--nodegroup-name: command not found
+--node-type: command not found
+--nodes: command not found
+jenkins@ip-172-31-0-98:~$ kubectl version --short
+Flag --short has been deprecated, and will be removed in the future. The --short output will become the default.
+Client Version: v1.26.1
+Kustomize Version: v4.5.7
